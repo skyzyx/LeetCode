@@ -14,6 +14,3 @@ public class Solution {
         return res;
     }
 }
-
-// Add a comment.
-
