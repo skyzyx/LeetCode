@@ -14,5 +14,3 @@ public class Solution {
         return res;
     }
 }
-
-// A test.
