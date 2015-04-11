@@ -41,5 +41,3 @@ public class Solution {
         return dummyHead.next;
     }
 }
-
-// Add a comment.
