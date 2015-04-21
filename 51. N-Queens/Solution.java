@@ -12,7 +12,7 @@ public class Solution {
         return res;
     }
     
-    private void dfs(int row, int col, int count, char[][] board, List<String[]> res) {
+    private void dfs(int i, int j, int count, char[][] board, List<String[]> res) {
         if (count == board.length) {
             String[] tmp = new String[count];
             for (int k = 0; k < count; k++) {
@@ -22,11 +22,11 @@ public class Solution {
             return;
         }
         
-        for (int i = 0; i < board.length; i++) {
-            if (isValid(i, col, board)) {
-                board[i][col] = 'Q';
-                dfs(i, col+1, count+1, board, res);
-                board[i][col] = '.';
+        for (int row = 0; row < board.length; row++) {
+            if (isValid(row, j, board)) {
+                board[row][j] = 'Q';
+                dfs(row, j+1, count+1, board, res);
+                board[row][j] = '.';
             }
         }
     }
