@@ -1,22 +1,21 @@
 public class Solution {
-    public List<String> generateParenthesis(int n) {
-        List<String> res = new ArrayList<String>();
-        if (n <= 0)
-            return res;
+    public int searchInsert(int[] A, int target) {
+        if (A == null)
+            return -1;
             
-        res.add("()");
+        int left = 0;
+        int right = A.length - 1;
         
-        for (int i = 1; i < n; i++) {
-            ArrayList<String> tmp = new ArrayList<String>();
-            for (String word: res) {
-                for (int j = 0; j < word.length(); j++) {
-                    String s = word.substring(0, j) + "()" + word.substring(j);
-                    if (!tmp.contains(s))
-                        tmp.add(s);
-                }
+        while (left <= right) {
+            int mid = (left + right) / 2;
+            if (A[mid] == target) {
+                return mid;
+            } else if (A[mid] > target) {
+                right = mid - 1;
+            } else {
+                left = mid + 1;
             }
-            res = new ArrayList<String>(tmp);
         }
-        return res;
+        return left;
     }
 }
