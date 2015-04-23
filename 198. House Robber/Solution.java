@@ -1,3 +1,4 @@
+
 public class Solution {
     public int rob(int[] num) {
         if (num == null || num.length == 0)
