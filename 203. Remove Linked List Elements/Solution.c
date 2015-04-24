@@ -5,6 +5,9 @@
  *     struct ListNode *next;
  * };
  */
+
+// http://www.geeksforgeeks.org/delete-a-given-node-in-linked-list-under-given-constraints/
+
 struct ListNode* removeElements(struct ListNode* head, int val) {
     if (head == NULL)
         return NULL;
