@@ -10,13 +10,13 @@ class Solution:
     # @return an integer
     def minDepth(self, root):
         if root == None:
-            return 0;
+            return 0
             
-        leftDepth = self.minDepth(root.left);
-        rightDepth = self.minDepth(root.right);
+        leftDepth = self.minDepth(root.left)
+        rightDepth = self.minDepth(root.right)
         
         if leftDepth == 0:
-            return 1 + rightDepth;
+            return 1 + rightDepth
         if rightDepth == 0:
-            return 1 + leftDepth;
-        return 1 + min(leftDepth, rightDepth);
+            return 1 + leftDepth
+        return 1 + min(leftDepth, rightDepth)
