@@ -20,7 +20,5 @@ public class Solution {
             }
         }
         return global[prices.length-1][k];
-        
-        
     }
 }
