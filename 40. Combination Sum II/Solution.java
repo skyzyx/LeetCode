@@ -12,19 +12,15 @@ public class Solution {
     }
     
     private void recursiveCombination(int[] num, int start, int target, ArrayList<Integer> cur, ArrayList<ArrayList<Integer>> res) {
-        if (target == 0) {
-            ArrayList<Integer> tmp = new ArrayList<Integer>(cur);
-            if (!res.contains(tmp))
-                res.add(tmp);
-        }
+        if (target == 0 && !res.contains(cur))
+            res.add(new ArrayList<Integer>(cur));
         
         for (int i = start; i < num.length; i++) {
-            if (num[i] > target)
-                continue;
-                
-            cur.add(num[i]);
-            recursiveCombination(num, i+1, target-num[i], cur, res);
-            cur.remove(cur.size() - 1);
+            if (target >= num[i]) {
+                cur.add(num[i]);
+                recursiveCombination(num, i+1, target-num[i], cur, res);
+                cur.remove(cur.size() - 1);
+            }
         }
     }
 }
