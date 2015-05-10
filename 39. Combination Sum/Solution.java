@@ -11,9 +11,8 @@ public class Solution {
     }
     
     private void recursiveCombination(int[] candidates, int start, int target, ArrayList<Integer> cur, ArrayList<ArrayList<Integer>> res) {
-        if (target == 0) {
-            ArrayList<Integer> tmp = new ArrayList<Integer>(cur);
-            res.add(tmp);
+        if (target == 0 && !res.contains(cur)) {
+            res.add(new ArrayList<Integer>(cur));
             return;
         }
         
