@@ -1,4 +1,4 @@
-# Definition for a  binary tree node
+# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
@@ -6,13 +6,14 @@
 #         self.right = None
 
 class Solution:
-    # @param p, a tree node
-    # @param q, a tree node
-    # @return a boolean
+    # @param {TreeNode} p
+    # @param {TreeNode} q
+    # @return {boolean}
     def isSameTree(self, p, q):
-        if p == None and q == None: # Not &&
-            return True; # Not true
-        if p != None and q != None and p.val == q.val:
-            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right);
-        return False; # Not false
+        if p == None and q == None:
+            return True
+        elif p != None and q != None and p.val == q.val:
+            return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        else:
+            return False
         
