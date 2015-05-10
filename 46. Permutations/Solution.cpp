@@ -18,12 +18,11 @@ private:
         }
         
         for (int i = 0; i < num.size(); i++) {
-            if (find(cur.begin(), cur.end(), num[i]) != cur.end())
-                continue;
-                
-            cur.push_back(num[i]);
-            dfs(num, cur, res);
-            cur.pop_back();
+            if (find(cur.begin(), cur.end(), num[i]) == cur.end()) {
+                cur.push_back(num[i]);
+                dfs(num, cur, res);
+                cur.pop_back();
+            }
         }
     }
 };
