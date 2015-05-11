@@ -1,5 +1,8 @@
 public class Solution {
     public boolean isPalindrome(int x) {
+        // Input:   -2147483648
+        // Output:  true
+        // Expected:    false 
         if (x < 0)
             return false;
             
