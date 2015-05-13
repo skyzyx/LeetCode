@@ -11,21 +11,23 @@ class Solution:
         if head == None or head.next == None:
             return None
             
-        walker = head.next
-        runner = head.next.next
-        while runner != None and runner != walker:
-            walker = walker.next
-            if runner.next != None:
-                runner = runner.next.next
-            else:
-                runner = None
-        
-        if runner == None:
-            return None
-            
+        walker = head
         runner = head
-        while runner != walker:
-            runner = runner.next
+        hasCircle = False
+        
+        while runner != None and runner.next != None:
+            runner = runner.next.next
             walker = walker.next
-        return runner
+            if runner == walker:
+                hasCircle = True
+                break
+            
+        if hasCircle:
+            runner = head
+            while runner != walker:
+                runner = runner.next
+                walker = walker.next
+            return runner
+            
+        return None
         
