@@ -14,25 +14,28 @@ public class Solution {
         if (head == null || head.next == null)
             return null;
             
-        ListNode walker = head.next;
-        ListNode runner = head.next.next;
-        while (runner != null && walker != runner) {
+        ListNode walker = head;
+        ListNode runner = head;
+        boolean hasCircle = false;
+        
+        while (runner != null && runner.next != null) {
             walker = walker.next;
-            if (runner.next != null) 
-                runner = runner.next.next;
-            else 
-                runner = null;
+            runner = runner.next.next;
+            if (walker == runner) {
+                hasCircle = true;
+                break;
+            }
         }
         
-        if (runner == null)
-            return null;
-            
-        runner = head;
-        while (runner != walker) {
-            runner = runner.next;
-            walker = walker.next;
+        if (hasCircle == true) {
+            runner = head;
+            while (walker != runner) {
+                runner = runner.next;
+                walker = walker.next;
+            }
+            return runner;
         }
         
-        return runner;
+        return null;
     }
 }
