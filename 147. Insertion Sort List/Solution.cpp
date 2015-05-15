@@ -12,6 +12,34 @@ public:
         if (head == NULL || head->next == NULL)
             return head;
             
+        ListNode* dummyHead = new ListNode(INT_MIN);
+        //dummyHead->next = head;
+        
+        ListNode* pre = dummyHead;
+        ListNode* cur = head;
+        
+        while (cur != NULL) {
+            pre = dummyHead;
+            ListNode* next = cur->next;
+            while (pre->next != NULL && pre->next->val <= cur->val)
+                pre = pre->next;
+            
+            cur->next = pre->next;
+            pre->next = cur;
+            cur = next;
+        }
+        return dummyHead->next;
+    }
+};
+
+ 
+/* 
+class Solution {
+public:
+    ListNode* insertionSortList(ListNode* head) {
+        if (head == NULL || head->next == NULL)
+            return head;
+            
         ListNode* cur = head->next;
         while (cur != NULL) {
             ListNode* tmp = head;
@@ -28,3 +56,4 @@ public:
         return head;
     }
 };
+*/
