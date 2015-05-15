@@ -4,7 +4,7 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
-
+'''
 class Solution:
     # @param {TreeNode} root
     # @return {void} Do not return anything, modify root in-place instead.
@@ -26,3 +26,26 @@ class Solution:
             p.right = rightNode
             
         self.flatten(root.right)
+'''
+
+class Solution:
+    def flatten(self, root):
+        if root == None:
+            return
+        
+        stack = [root]
+        pre = None
+        
+        while len(stack) > 0:
+            cur = stack.pop()
+            if cur.right != None:
+                stack.append(cur.right)
+            if cur.left != None:
+                stack.append(cur.left)
+                
+            if pre != None:
+                pre.left = None
+                pre.right = cur
+                
+            pre = cur
+        return
