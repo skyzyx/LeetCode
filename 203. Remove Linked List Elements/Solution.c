@@ -5,27 +5,20 @@
  *     struct ListNode *next;
  * };
  */
-
-// http://www.geeksforgeeks.org/delete-a-given-node-in-linked-list-under-given-constraints/
-
 struct ListNode* removeElements(struct ListNode* head, int val) {
     if (head == NULL)
-        return NULL;
+        return head;
         
-    struct ListNode* dummyHead = (struct ListNode*)malloc(sizeof(struct ListNode));
-    dummyHead->val = -1;
+    struct ListNode* dummyHead = malloc(sizeof(struct ListNode));
     dummyHead->next = head;
+    dummyHead->val = INT_MIN;
     
-    struct ListNode* helper = dummyHead;
-    
-    while (helper->next != NULL) {
-        if (helper->next->val == val) {
-            struct ListNode* tempNode = helper->next;
-            helper->next = tempNode->next;
-        } else {
-            helper = helper->next;
-        }
+    struct ListNode* p = dummyHead;
+    while (p->next != NULL) {
+        if (p->next->val == val)
+            p->next = p->next->next;
+        else
+            p = p->next;
     }
-    
     return dummyHead->next;
 }
