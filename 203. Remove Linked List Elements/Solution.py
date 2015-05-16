@@ -10,17 +10,15 @@ class Solution:
     # @return {ListNode}
     def removeElements(self, head, val):
         if head == None:
-            return None
-        
+            return head
+            
         dummyHead = ListNode(-1)
         dummyHead.next = head
         
-        helper = dummyHead
-        while helper.next != None:
-            if helper.next.val == val:
-                fooNode = helper.next
-                helper.next = fooNode.next
+        p = dummyHead
+        while p.next != None:
+            if p.next.val == val:
+                p.next = p.next.next
             else:
-                helper = helper.next
-        
+                p = p.next
         return dummyHead.next
