@@ -14,25 +14,22 @@ public class Solution {
         
         int preLen = preorder.length - 1;
         int inLen = inorder.length - 1;
-        return buildTree(preorder, 0, preLen, inorder, 0, inLen);
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for (int i = 0; i <= inLen; i++)
+            map.put(inorder[i], i);
+    
+        return dfs(map, preorder, 0, preLen, inorder, 0, inLen);
     }
     
-    private TreeNode buildTree(int[] preorder, int preL, int preR, int[] inorder, int inL, int inR) {
-        if (inL > inR)
+    private TreeNode dfs(HashMap<Integer, Integer> map, int[] preorder, int preL, int preR, int[] inorder, int inL, int inR) {
+        if (inL > inR || preL > preR)
             return null;
         
         TreeNode root = new TreeNode(preorder[preL]);
-        int rootIndex = 0;
-        for (int k = 0; k < inorder.length; k++) {
-            if (root.val == inorder[k]) {
-                rootIndex = k;
-                break;
-            }
-        }
+        int rootIndex = map.get(preorder[preL]);
         
-        int size = rootIndex - inL;
-        root.left = buildTree(preorder, preL+1, preL + size, inorder, inL, rootIndex-1);
-        root.right = buildTree(preorder, preL + size + 1, preR, inorder, rootIndex+1, inR);
+        root.left = dfs(map, preorder, preL+1, rootIndex+preL-inL, inorder, inL, rootIndex-1);
+        root.right = dfs(map, preorder, preL+rootIndex+1-inL, preR, inorder, rootIndex+1, inR);
         return root;
     }
 }
