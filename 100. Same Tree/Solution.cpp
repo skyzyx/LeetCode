@@ -1,5 +1,5 @@
 /**
- * Definition for binary tree
+ * Definition for a binary tree node.
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;
@@ -9,13 +9,11 @@
  */
 class Solution {
 public:
-    bool isSameTree(TreeNode *p, TreeNode *q) {
-        if (p == NULL && q == NULL) {
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        if (p == NULL && q == NULL)
             return true;
-        } else if (p != NULL && q != NULL && p->val == q->val) {
+        if (p != NULL && q != NULL && p->val == q->val)
             return isSameTree(p->left, q->left) && isSameTree(p->right, q->right);
-        } else {
-            return false;
-        }
+        return false;
     }
 };
