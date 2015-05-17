@@ -1,4 +1,4 @@
-# Definition for a  binary tree node
+# Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
 #         self.val = x
@@ -6,19 +6,16 @@
 #         self.right = None
 
 class Solution:
-    # @param root, a tree node
-    # @return a boolean
+    # @param {TreeNode} root
+    # @return {boolean}
     def isSymmetric(self, root):
         if root == None:
-            return True;
-        return self.helper(root.left, root.right)
-        
-    def helper(self, node1, node2):
-        if node1 == None and node2 == None:
             return True
-        if node1 == None or node2 == None:
-            return False
-        if node1.val != node2.val:
-            return False
-        return self.helper(node1.left, node2.right) and self.helper(node1.right, node2.left)
+        return self.dfs(root.left, root.right)
         
+    def dfs(self, p, q):
+        if p == None and q == None:
+            return True
+        if p != None and q != None and p.val == q.val:
+            return self.dfs(p.left, q.right) and self.dfs(p.right, q.left)
+        return False
