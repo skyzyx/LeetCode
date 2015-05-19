@@ -15,14 +15,14 @@ public class Solution {
             return;
         }
         
-        int len = s.length();
+        // int len = s.length();
         /*
-        Input:	"a"
-        Output:	[]
-        Expected:	[["a"]]
+        Input:  "a"
+        Output: []
+        Expected:   [["a"]]
         */
         
-        for (int i = 1; i <= len; i++) { // NOT i < len
+        for (int i = 1; i <= s.length(); i++) { // NOT i < len
             String subStr = s.substring(0, i);
             if (isPalindrome(subStr)) {
                 cur.add(subStr);
@@ -36,13 +36,13 @@ public class Solution {
         if (s == null)
             return false;
         
-        int left = 0;
-        int right = s.length() - 1;
-        while (left < right) {
-            if (s.charAt(left) != s.charAt(right))
+        int l = 0;
+        int r = s.length() - 1;
+        while (l < r) {
+            if (s.charAt(l) != s.charAt(r))
                 return false;
-            left += 1;
-            right -= 1;
+            l++;
+            r--;
         }
         return true;
     }
