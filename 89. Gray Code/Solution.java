@@ -1,5 +1,24 @@
 public class Solution {
     public List<Integer> grayCode(int n) {
+        List<Integer> res = new ArrayList<Integer>();
+        if (n < 0)
+            return res;
+            
+        res.add(0);
+        for (int i = 1; i <= n; i++) {
+            List<Integer> cur = new ArrayList<Integer>(res);
+            for (int j = res.size() - 1; j >= 0; j--) {
+                cur.add(res.get(j) + (1 << (i-1)));
+            }
+            res = new ArrayList<Integer>(cur);
+        }
+        return res;
+    }
+}
+
+/*
+public class Solution {
+    public List<Integer> grayCode(int n) {
         if (n < 0)
             return null;
             
@@ -18,3 +37,4 @@ public class Solution {
         return res;
     }
 }
+*/
