@@ -1,16 +1,14 @@
 class Solution {
 public:
-    int singleNumber(int A[], int n) {
-        int digits[32] = {};
-        for (int i = 0; i < 32; i++) {
-            for (int j = 0; j < n; j++) {
-                digits[i] += (A[j] >> i) & 1;
-            }
-        }
-        
+    int singleNumber(vector<int>& nums) {
         int res = 0;
-        for (int k = 0; k < 32; k++) {
-            res += (digits[k] % 3) << k;
+        for (int i = 0; i < 32; i++) {
+            int bitSum = 0;
+            for (int j = 0; j < nums.size(); j++) {
+                bitSum += (nums[j] >> i) & 1;
+            }
+            
+            res = res | ((bitSum % 3) << i);
         }
         return res;
     }
