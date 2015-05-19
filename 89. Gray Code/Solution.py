@@ -1,4 +1,16 @@
 class Solution:
+    def grayCode(self, n):
+        res = []
+        if n < 0:
+            return res
+        
+        res.append(0)
+        for i in xrange(1, n+1):
+            res = res + [(1 << (i-1)) + item for item in reversed(res)]
+        return res
+
+''' 
+class Solution:
     # @param n, an integer
     # @return an integer[]
     def grayCode(self, n):
@@ -14,4 +26,4 @@ class Solution:
             res.append(item + pow(2, n-1))
             
         return res
-        
+'''
