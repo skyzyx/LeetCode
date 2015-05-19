@@ -6,11 +6,11 @@ public class Solution {
             
         Arrays.sort(candidates);
         ArrayList<Integer> cur = new ArrayList<Integer>();
-        recursiveCombination(candidates, 0, target, cur, res);
+        dfs(candidates, 0, target, cur, res);
         return res;
     }
     
-    private void recursiveCombination(int[] candidates, int start, int target, ArrayList<Integer> cur, ArrayList<ArrayList<Integer>> res) {
+    private void dfs(int[] candidates, int start, int target, ArrayList<Integer> cur, ArrayList<ArrayList<Integer>> res) {
         if (target == 0 && !res.contains(cur)) {
             res.add(new ArrayList<Integer>(cur));
             return;
@@ -19,7 +19,7 @@ public class Solution {
         for (int i = start; i < candidates.length; i++) {
             if (target >= candidates[i]) {
                 cur.add(candidates[i]);
-                recursiveCombination(candidates, i, target-candidates[i], cur, res);
+                dfs(candidates, i, target-candidates[i], cur, res);
                 cur.remove(cur.size() - 1);
             }
         }
