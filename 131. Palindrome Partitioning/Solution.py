@@ -16,7 +16,7 @@ class Solution:
             return
         
         size = len(s)
-        for i in xrange(1, size + 1):
+        for i in xrange(1, len(s) + 1):
             sub = s[0:i]
             if self.isPalindrome(sub) == True:
                 cur.append(sub)
