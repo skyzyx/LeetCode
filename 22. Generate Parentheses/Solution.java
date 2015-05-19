@@ -9,7 +9,7 @@ public class Solution {
         for (int i = 1; i < n; i++) {
             ArrayList<String> tmp = new ArrayList<String>();
             for (String word: res) {
-                for (int j = 0; j < word.length(); j++) {
+                for (int j = 0; j <= word.length(); j++) {
                     String s = word.substring(0, j) + "()" + word.substring(j);
                     if (!tmp.contains(s))
                         tmp.add(s);
