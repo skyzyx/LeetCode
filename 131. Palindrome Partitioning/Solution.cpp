@@ -17,8 +17,7 @@ private:
             return;
         }
         
-        int size = s.size();
-        for (int i = 1; i <= size; i++) {
+        for (int i = 1; i <= s.size(); i++) {
             string sub = s.substr(0, i);
             if (isPalindrome(sub)) {
                 cur.push_back(sub);
