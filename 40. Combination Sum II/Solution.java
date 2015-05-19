@@ -7,18 +7,18 @@ public class Solution {
         Arrays.sort(num);
         
         ArrayList<Integer> cur = new ArrayList<Integer>();
-        recursiveCombination(num, 0, target, cur, res);
+        dfs(num, 0, target, cur, res);
         return res;
     }
     
-    private void recursiveCombination(int[] num, int start, int target, ArrayList<Integer> cur, ArrayList<ArrayList<Integer>> res) {
+    private void dfs(int[] num, int start, int target, ArrayList<Integer> cur, ArrayList<ArrayList<Integer>> res) {
         if (target == 0 && !res.contains(cur))
             res.add(new ArrayList<Integer>(cur));
         
         for (int i = start; i < num.length; i++) {
             if (target >= num[i]) {
                 cur.add(num[i]);
-                recursiveCombination(num, i+1, target-num[i], cur, res);
+                dfs(num, i+1, target-num[i], cur, res);
                 cur.remove(cur.size() - 1);
             }
         }
