@@ -8,12 +8,12 @@ public:
         sort(num.begin(), num.end());
         
         vector<int> cur;
-        recursiveCombination(num, 0, target, cur, res);
+        dfs(num, 0, target, cur, res);
         return res;
     }
     
 private:
-    void recursiveCombination(vector<int> &num, int start, int target, vector<int> &cur, vector<vector<int>> &res) {
+    void dfs(vector<int> &num, int start, int target, vector<int> &cur, vector<vector<int>> &res) {
         if (target == 0) {
             if (find(res.begin(), res.end(), cur) == res.end())
                 res.push_back(cur);
@@ -30,7 +30,7 @@ private:
             */
             if (target >= num[i]) {
                 cur.push_back(num[i]);
-                recursiveCombination(num, i+1, target-num[i], cur, res);
+                dfs(num, i+1, target-num[i], cur, res);
                 cur.pop_back();
             }
         }
