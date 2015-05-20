@@ -1,3 +1,20 @@
+int max(int a, int b) {
+    return a >= b? a: b;
+}
+
+int rob(int* nums, int numsSize) {
+    int even = 0;
+    int odd = 0;
+    for (int i = 0; i < numsSize; i++) {
+        if (i % 2 == 0)
+            even = max(even + nums[i], odd);
+        else
+            odd = max(odd + nums[i], even);
+    }
+    return max(even, odd);
+}
+
+/*
 int rob(int* nums, int numsSize) {
     int dp[numsSize+1];
     dp[0] = 0;
@@ -10,3 +27,4 @@ int rob(int* nums, int numsSize) {
             dp[i] = dp[i-2] + nums[i-1];
     return dp[numsSize];
 }
+*/
