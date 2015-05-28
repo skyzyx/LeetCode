@@ -3,7 +3,6 @@ public class Solution {
         ArrayList<ArrayList<Integer>> res = new ArrayList<ArrayList<Integer>>();
         if (k <= 0)
             return res;
-            
         ArrayList<Integer> cur = new ArrayList<Integer>();
         dfs(1, n, k, cur, res);
         return res;
