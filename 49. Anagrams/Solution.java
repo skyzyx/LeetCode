@@ -18,7 +18,6 @@ public class Solution {
                 ArrayList<String> bar = new ArrayList<String>();
                 bar.add(word);
                 map.put(foo, bar);
-                // map.put(foo, bar.add(word)); error: incompatible types: boolean cannot be converted to ArrayList<String>
             }
         }
         
