@@ -1,3 +1,7 @@
+# LeetCode #204: Count Primes
+
+# Count the number of prime numbers less than a non-negative number, n.
+
 class Solution:
     # @param {integer} n
     # @return {integer}
