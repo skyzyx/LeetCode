@@ -1,3 +1,7 @@
+# LeetCode #50: Pow(x, n)
+
+# Implement pow(x, n).
+
 class Solution:
     # @param x, a float
     # @param n, a integer
