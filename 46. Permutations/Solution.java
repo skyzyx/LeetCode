@@ -1,3 +1,13 @@
+// LeetCode #46: Permutations
+
+/*
+Given a collection of numbers, return all possible permutations.
+
+For example,
+[1,2,3] have the following permutations:
+[1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1].
+*/
+
 // Permutations of a word, http://www.ardendertat.com/2011/10/28/programming-interview-questions-11-all-permutations-of-string/
 
 public class Solution {
