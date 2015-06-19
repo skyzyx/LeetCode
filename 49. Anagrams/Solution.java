@@ -1,3 +1,11 @@
+// LeetCode #49: Anagrams
+
+/*
+Given an array of strings, return all groups of strings that are anagrams.
+
+Note: All inputs will be in lower-case.
+*/
+
 public class Solution {
     public List<String> anagrams(String[] strs) {
         List<String> res = new ArrayList<String>();
