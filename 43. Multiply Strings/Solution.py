@@ -1,3 +1,11 @@
+# LeetCode #43: Multiply Strings
+
+'''
+Given two numbers represented as strings, return multiplication of the numbers as a string.
+
+Note: The numbers can be arbitrarily large and are non-negative.
+'''
+
 class Solution:
     # @param {string} num1
     # @param {string} num2
