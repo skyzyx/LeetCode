@@ -1,3 +1,11 @@
+// LeetCode #43: Multiply Strings
+
+/*
+Given two numbers represented as strings, return multiplication of the numbers as a string.
+
+Note: The numbers can be arbitrarily large and are non-negative.
+*/
+
 public class Solution {
     public String multiply(String num1, String num2) {
         if (num1 == null || num2 == null || num1.length() == 0 || num2.length() == 0)
