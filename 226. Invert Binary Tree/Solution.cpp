@@ -29,6 +29,34 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
+
+class Solution {
+public:
+    TreeNode* invertTree(TreeNode* root) {
+        if (root == NULL)
+            return root;
+            
+        queue<TreeNode*> que;
+        que.push(root);
+        
+        while (!que.empty()) {
+            TreeNode* curr = que.front();
+            que.pop();
+            
+            if (curr->left != NULL)
+                que.push(curr->left);
+            if (curr->right != NULL)
+                que.push(curr->right);
+                
+            TreeNode* temp = curr->right;
+            curr->right = curr->left;
+            curr->left = temp;
+        }
+        return root;
+    }
+};
+
+/*
 class Solution {
 public:
     TreeNode* invertTree(TreeNode* root) {
@@ -43,4 +71,4 @@ public:
         return root;
     }
 };
-
+*/
