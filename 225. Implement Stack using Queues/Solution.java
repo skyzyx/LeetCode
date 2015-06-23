@@ -18,6 +18,41 @@ The class name of the Java function had been updated to MyStack instead of Stack
 */
 
 class MyStack {
+    private Queue<Integer> q;
+    private Queue<Integer> s;
+    
+    public MyStack() {
+        q = new LinkedList<Integer>();
+        s = new LinkedList<Integer>();
+    }
+    // Push element x onto stack.
+    public void push(int x) {
+        s.offer(x);
+        while (!q.isEmpty())
+            s.offer(q.poll());
+            
+        q = new LinkedList<Integer>(s);
+        s = new LinkedList<Integer>();
+    }
+
+    // Removes the element on top of the stack.
+    public void pop() {
+        q.poll();
+    }
+
+    // Get the top element.
+    public int top() {
+        return q.peek();
+    }
+
+    // Return whether the stack is empty.
+    public boolean empty() {
+        return q.isEmpty() == true;
+    }
+}
+
+/*
+class MyStack {
     private Queue<Integer> que;
     
     public MyStack() {
@@ -57,3 +92,4 @@ class MyStack {
         return que.isEmpty() == true;
     }
 }
+*/
