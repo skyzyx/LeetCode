@@ -19,7 +19,6 @@ Trivia:
 This problem was inspired by this original tweet by Max Howell:
 Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ€™t invert a binary tree on a whiteboard so fuck off.
 '''
-
 # Definition for a binary tree node.
 # class TreeNode:
 #     def __init__(self, x):
@@ -27,6 +26,28 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
 #         self.left = None
 #         self.right = None
 
+from collections import deque
+
+class Solution:
+    def invertTree(self, root):
+        if root == None:
+            return root
+            
+        que = deque([root])
+        while len(que) > 0:
+            curr = que.popleft();
+            if curr.left != None:
+                que.append(curr.left)
+            if curr.right != None:
+                que.append(curr.right)
+                
+            temp = curr.right
+            curr.right = curr.left
+            curr.left = temp
+            
+        return root
+
+'''
 class Solution:
     # @param {TreeNode} root
     # @return {TreeNode}
@@ -40,3 +61,4 @@ class Solution:
         root.left = self.invertTree(right)
         root.right = self.invertTree(left)
         return root
+'''
