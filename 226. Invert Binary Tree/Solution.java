@@ -33,6 +33,30 @@ public class Solution {
     public TreeNode invertTree(TreeNode root) {
         if (root == null)
             return root;
+            
+        Queue<TreeNode> que = new LinkedList<TreeNode>();
+        que.offer(root);
+        
+        while (!que.isEmpty()) {
+            TreeNode curr = que.poll();
+            if (curr.left != null)
+                que.offer(curr.left);
+            if (curr.right != null)
+                que.offer(curr.right);
+                
+            TreeNode temp = curr.right;
+            curr.right = curr.left;
+            curr.left = temp;
+        }
+        return root;
+    }
+} 
+
+/*
+public class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null)
+            return root;
         return invert(root);
     }
     
@@ -50,6 +74,8 @@ public class Solution {
         return root;
     }
 }
+*/
+
 /*
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
