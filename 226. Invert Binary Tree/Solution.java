@@ -29,6 +29,7 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
  *     TreeNode(int x) { val = x; }
  * }
  */
+/*
 public class Solution {
     public TreeNode invertTree(TreeNode root) {
         if (root == null)
@@ -50,7 +51,8 @@ public class Solution {
         }
         return root;
     }
-} 
+}
+*/
 
 /*
 public class Solution {
@@ -94,3 +96,15 @@ public class Solution {
     }
 }
 */
+public class Solution {
+    public TreeNode invertTree(TreeNode root) {
+        if (root == null)
+            return root;
+            
+        TreeNode temp = root.left;
+        
+        root.left = invertTree(root.right);
+        root.right = invertTree(temp);
+        return root;
+    }
+}
