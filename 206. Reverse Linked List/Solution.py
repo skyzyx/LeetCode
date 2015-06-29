@@ -15,7 +15,20 @@ A linked list can be reversed either iteratively or recursively. Could you imple
 #         self.val = x
 #         self.next = None
 
-class Solution:
+class Solution: # Recursion
+    def reverseList(self, head):
+        if head is None or head.next is None:
+            return head
+            
+        rest = head.next
+        head.next = None
+        
+        reverseRest = self.reverseList(rest)
+        rest.next = head
+        
+        return reverseRest
+
+class Solution: # Iteration
     # @param {ListNode} head
     # @return {ListNode}
     def reverseList(self, head):
