@@ -17,7 +17,25 @@ A linked list can be reversed either iteratively or recursively. Could you imple
  *     ListNode(int x) : val(x), next(NULL) {}
  * };
  */
-class Solution {
+
+class Solution { // Recursion
+public:
+    ListNode* reverseList(ListNode* head) {
+        if (head == NULL || head->next == NULL)
+            return head;
+            
+        ListNode* rest = head->next;
+        head->next = NULL;
+        
+        ListNode* reverseRest = reverseList(rest);
+        rest->next = head;
+        
+        return reverseRest;
+    }
+};
+
+/*
+class Solution { // Iteration
 public:
     ListNode* reverseList(ListNode* head) {
         if (head == NULL || head->next == NULL)
@@ -36,3 +54,4 @@ public:
         return head;
     }
 };
+*/
