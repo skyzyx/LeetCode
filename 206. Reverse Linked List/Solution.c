@@ -16,7 +16,22 @@ A linked list can be reversed either iteratively or recursively. Could you imple
  *     struct ListNode *next;
  * };
  */
-struct ListNode* reverseList(struct ListNode* head) {
+
+struct ListNode* reverseList(struct ListNode* head) { // Recursion
+    if (head == NULL || head->next == NULL)
+        return head;
+        
+    struct ListNode* rest = head->next;
+    head->next = NULL;
+    
+    struct ListNode* reverseRest = reverseList(rest);
+    rest->next = head;
+    
+    return reverseRest;
+}
+
+/*
+struct ListNode* reverseList(struct ListNode* head) { // Iteration
     if (head == NULL || head->next == NULL)
         return head;
         
@@ -32,3 +47,4 @@ struct ListNode* reverseList(struct ListNode* head) {
     head = prev;
     return head;
 }
+*/
