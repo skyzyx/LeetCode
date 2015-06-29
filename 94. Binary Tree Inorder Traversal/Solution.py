@@ -22,7 +22,23 @@ Note: Recursive solution is trivial, could you do it iteratively?
 #         self.left = None
 #         self.right = None
 
-class Solution:
+class Solution: # Recursive
+    def inorderTraversal(self, root):
+        res = []
+        if root is None:
+            return res
+            
+        res.extend(self.inorderTraversal(root.left))
+        res.append(root.val) # NOT res.extend(root.val), TypeError: 'int' object is not iterable
+        res.extend(self.inorderTraversal(root.right))
+        
+        # res.append(self.inorderTraversal(root.left))
+        # res.append(root.val)
+        # res.append(self.inorderTraversal(root.right))
+        
+        return res
+'''
+class Solution: # Iterative
     # @param {TreeNode} root
     # @return {integer[]}
     def inorderTraversal(self, root):
@@ -42,4 +58,4 @@ class Solution:
                 res.append(temp.val)
                 curr = temp.right
         return res
-        
+'''
