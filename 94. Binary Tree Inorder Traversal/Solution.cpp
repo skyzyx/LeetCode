@@ -24,7 +24,28 @@ Note: Recursive solution is trivial, could you do it iteratively?
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+class Solution { // Recursive
+public:
+    vector<int> inorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if (root == NULL)
+            return res;
+        
+        vector<int> left = inorderTraversal(root->left);
+        res.insert(res.end(), left.begin(), left.end());
+        
+        res.push_back(root->val);
+        
+        vector<int> right = inorderTraversal(root->right);
+        res.insert(res.end(), right.begin(), right.end()); // NOT res.push_back(inorderTraversal(root->left));
+        // no matching function for call to ‘std::vector<int>::push_back(std::vector<int>)    
+        
+        return res;
+    }
+}; 
+
+/*
+class Solution { // Iterative
 public:
     vector<int> inorderTraversal(TreeNode *root) {
         vector<int> res;
@@ -49,3 +70,4 @@ public:
         return res;
     }
 };
+*/
