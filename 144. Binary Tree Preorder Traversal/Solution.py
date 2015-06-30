@@ -22,7 +22,20 @@ Note: Recursive solution is trivial, could you do it iteratively?
 #         self.left = None
 #         self.right = None
 
-class Solution:
+class Solution: # Recursion
+    def preorderTraversal(self, root):
+        res = []
+        if root is None:
+            return res
+            
+        res.append(root.val)
+        res.extend(self.preorderTraversal(root.left))
+        res.extend(self.preorderTraversal(root.right))
+        
+        return res
+
+'''
+class Solution: # Iteration
     # @param {TreeNode} root
     # @return {integer[]}
     def preorderTraversal(self, root):
@@ -41,4 +54,4 @@ class Solution:
             if tmp.left != None:
                 stack.append(tmp.left)
         return res
-            
+'''           
