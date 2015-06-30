@@ -24,7 +24,28 @@ Note: Recursive solution is trivial, could you do it iteratively?
  *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
  * };
  */
-class Solution {
+
+class Solution { // Recursion
+public:
+    vector<int> preorderTraversal(TreeNode* root) {
+        vector<int> res;
+        if (root == NULL)
+            return res;
+            
+        res.push_back(root->val);
+        
+        vector<int> left = preorderTraversal(root->left);
+        res.insert(res.end(), left.begin(), left.end());
+        
+        vector<int> right = preorderTraversal(root->right);
+        res.insert(res.end(), right.begin(), right.end());
+        
+        return res;
+    }
+};
+
+/*
+class Solution { // Iteration
 public:
     vector<int> preorderTraversal(TreeNode *root) {
         vector<int> res;
@@ -48,3 +69,4 @@ public:
         return res;
     }
 };
+*/
