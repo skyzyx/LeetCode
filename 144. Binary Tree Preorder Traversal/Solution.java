@@ -24,7 +24,23 @@ Note: Recursive solution is trivial, could you do it iteratively?
  *     TreeNode(int x) { val = x; }
  * }
  */
-public class Solution {
+
+public class Solution { // Recursion
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<Integer>();
+        if (root == null)
+            return res;
+            
+        res.add(root.val);
+        res.addAll(preorderTraversal(root.left));
+        res.addAll(preorderTraversal(root.right));
+        
+        return res;
+    }
+}
+
+/*
+public class Solution { // Iteration
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<Integer>();
         if (root == null)
@@ -45,3 +61,4 @@ public class Solution {
         return res;
     }
 }
+*/
