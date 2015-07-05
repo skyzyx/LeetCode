@@ -26,7 +26,7 @@ class Solution:
         while div <= x / 10:
             div *= 10
             
-        while x > 0:
+        while x != 0:
             if x / div != x % 10:
                 return False
                 
