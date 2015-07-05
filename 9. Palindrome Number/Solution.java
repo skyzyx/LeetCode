@@ -17,9 +17,6 @@ There is a more generic way of solving this problem.
 
 public class Solution {
     public boolean isPalindrome(int x) {
-        // Input:   -2147483648
-        // Output:  true
-        // Expected:    false 
         if (x < 0)
             return false;
             
@@ -27,7 +24,7 @@ public class Solution {
         while (div <= x / 10)
             div *= 10;
             
-        while (x > 0) {
+        while (x != 0) {
             if (x % 10 != x / div)
                 return false;
             
