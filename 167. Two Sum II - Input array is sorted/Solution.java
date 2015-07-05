@@ -14,11 +14,7 @@ Output: index1=1, index2=2
 public class Solution {
     public int[] twoSum(int[] numbers, int target) {
         int[] res = {-1, -1};
-        if (numbers.length < 2)
-            return res;
-        
-        int i = 0;
-        int j = numbers.length - 1;
+        int i = 0, j = numbers.length - 1;
         while (i < j) {
             if (numbers[i] + numbers[j] == target) {
                 res[0] = i+1;
