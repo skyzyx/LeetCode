@@ -24,7 +24,7 @@ class Solution:
     # @param grid, a list of list of characters
     # @return an integer
     def numIslands(self, grid):
-        if grid == None or len(grid) == 0 or len(grid[0]) == 0:
+        if grid == None or len(grid) == 0:
             return 0
             
         res = 0
