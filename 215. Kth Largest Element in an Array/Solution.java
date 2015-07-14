@@ -10,6 +10,20 @@ Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 */
 
+public class Solution { // Maxheap, O(n) space, O(n) time.
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> que = new PriorityQueue<Integer>();
+        for (int num: nums)
+            que.add(num);
+            
+        while (que.size() > k) 
+            que.remove();
+            
+        return que.peek();
+    }
+}
+
+/*
 public class Solution {
     public int findKthLargest(int[] nums, int k) {
         if (nums == null || nums.length == 0)
@@ -19,6 +33,7 @@ public class Solution {
         return nums[nums.length - k];
     }
 }
+*/
 
 /*
 public class Solution { // Minheap, O(k) space, O(n) time.
