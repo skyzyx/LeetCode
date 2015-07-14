@@ -19,3 +19,20 @@ public class Solution {
         return nums[nums.length - k];
     }
 }
+
+/*
+public class Solution { // Minheap, O(k) space, O(n) time.
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(k);
+        for (int num : nums) {
+            if (queue.size() < k) {
+                queue.add(num);
+            } else if (queue.peek()< num) {
+                queue.remove();
+                queue.add(num);
+            }
+        }
+        return queue.peek();
+    }
+}
+*/
