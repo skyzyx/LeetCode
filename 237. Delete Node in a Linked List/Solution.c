@@ -16,6 +16,13 @@ with value 3, the linked list should become 1 -> 2 -> 4 after calling your funct
  * };
  */
 void deleteNode(struct ListNode* node) {
+    struct ListNode* next = node->next;
+    *node = *next;
+    free(next);
+}
+
+/*
+void deleteNode(struct ListNode* node) {
     if (node == NULL) return;
     
     struct ListNode* prev = node;
@@ -30,3 +37,4 @@ void deleteNode(struct ListNode* node) {
     prev->next = NULL;
     return;
 }
+*/
