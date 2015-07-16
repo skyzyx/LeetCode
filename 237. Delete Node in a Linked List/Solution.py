@@ -15,6 +15,12 @@ with value 3, the linked list should become 1 -> 2 -> 4 after calling your funct
 #         self.next = None
 
 class Solution:
+    def deleteNode(self, node):
+        node.val = node.next.val
+        node.next = node.next.next
+    
+'''
+class Solution:
     # @param {ListNode} node
     # @return {void} Do not return anything, modify node in-place instead.
     def deleteNode(self, node):
@@ -32,3 +38,4 @@ class Solution:
             
         prev.next = None
         return
+'''
