@@ -18,6 +18,15 @@ with value 3, the linked list should become 1 -> 2 -> 4 after calling your funct
  */
 public class Solution {
     public void deleteNode(ListNode node) {
+        ListNode next = node.next;
+        node.val = next.val;
+        node.next = next.next;
+    }
+}
+
+/*
+public class Solution {
+    public void deleteNode(ListNode node) {
         if (node == null) return;
         
         ListNode prev = node;
@@ -33,3 +42,4 @@ public class Solution {
         return;
     }
 }
+*/
