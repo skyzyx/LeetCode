@@ -10,16 +10,33 @@ Note:
 You may assume k is always valid, 1 ≤ k ≤ array's length.
 */
 
-public class Solution { // Maxheap, O(n) space, O(n) time.
+/*
+public class Solution { // MinHeap, O(n) space, O(n) time.
     public int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> que = new PriorityQueue<Integer>();
+        PriorityQueue<Integer> pq = new PriorityQueue<Integer>(); // In Java, this is a MinHeap.
         for (int num: nums)
-            que.add(num);
+            pq.offer(num);
             
-        while (que.size() > k) 
-            que.remove();
+        while (pq.size() > k)  
+            pq.poll();
             
-        return que.peek();
+        return pq.peek();
+    }
+}
+*/
+
+public class Solution { // Minheap, O(k) space, O(n) time.
+    public int findKthLargest(int[] nums, int k) {
+        PriorityQueue<Integer> mypq = new PriorityQueue<Integer>(k); // In Java, this is a MinHeap.
+        for (int num : nums) {
+            if (mypq.size() < k) {
+                mypq.offer(num);
+            } else if (mypq.peek() < num) {
+                mypq.poll();
+                mypq.offer(num);
+            }
+        }
+        return mypq.peek();
     }
 }
 
@@ -35,19 +52,3 @@ public class Solution {
 }
 */
 
-/*
-public class Solution { // Minheap, O(k) space, O(n) time.
-    public int findKthLargest(int[] nums, int k) {
-        PriorityQueue<Integer> queue = new PriorityQueue<Integer>(k);
-        for (int num : nums) {
-            if (queue.size() < k) {
-                queue.add(num);
-            } else if (queue.peek()< num) {
-                queue.remove();
-                queue.add(num);
-            }
-        }
-        return queue.peek();
-    }
-}
-*/
