@@ -14,6 +14,22 @@ class Solution:
     # @param {integer[]} nums
     # @param {integer} k
     # @return {integer}
+    def findKthLargest(self, nums, k): # In Python, this is a MinHeap
+        h = []
+        for num in nums:
+            heapq.heappush(h, num)
+            
+        while len(h) > k:
+            heapq.heappop(h)
+            
+        return h[0]
+
+'''
+class Solution:
+    # @param {integer[]} nums
+    # @param {integer} k
+    # @return {integer}
     def findKthLargest(self, nums, k):
         nums.sort()
         return nums[len(nums) - k];
+'''
