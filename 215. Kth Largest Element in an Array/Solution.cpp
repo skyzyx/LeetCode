@@ -13,7 +13,25 @@ You may assume k is always valid, 1 ≤ k ≤ array's length.
 class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k) {
+        priority_queue<int> mypq; // In C++, this is a MaxHeap.
+        for (int i = 0; i < nums.size(); i++)
+            mypq.push(nums[i]);
+            
+        while (k > 1) {
+            mypq.pop();
+            k--;
+        }
+            
+        return mypq.top();
+    }
+};
+
+/*
+class Solution {
+public:
+    int findKthLargest(vector<int>& nums, int k) {
         sort(nums.begin(), nums.end());
         return nums[nums.size() - k];
     }
 };
+*/
