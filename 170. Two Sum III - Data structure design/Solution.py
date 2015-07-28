@@ -15,23 +15,22 @@ find(7) -> false
 class TwoSum:
     # initialize your data structure here
     def __init__(self):
-        self.mydict = dict()
+        self.mydict = dict() # OR self.mydict = {}
 
     # @return nothing
     def add(self, number):
-        if not self.mydict.has_key(number):
-            self.mydict[number] = 1
+        if number in self.mydict: # OR if self.mydict.has_key(number):
+            self.mydict[number] += 1
         else:
-            self.mydict[number] = self.mydict[number] + 1
+            self.mydict[number] = 1
 
     # @param value, an integer
     # @return a Boolean
     def find(self, value):
-        for key in self.mydict.keys():
+        for key in self.mydict:
+        # for key in self.mydict.keys(): Time Limit Exceeded
             target = value - key
-            if self.mydict.has_key(target) and target != value:
-                return True
-            elif self.mydict.has_key(target) and target == value and self.mydict[target] >= 2:
+            if target in self.mydict and (target != key or self.mydict[target] > 1):
                 return True
         
         return False
