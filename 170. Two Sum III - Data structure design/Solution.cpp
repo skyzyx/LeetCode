@@ -24,9 +24,7 @@ public:
 	bool find(int value) {
 	    for (auto it = map.begin(); it != map.end(); it++) {
 	        int target = value - it->first;
-	        if (map.find(target) != map.end() && target != it->first)
-	            return true;
-	        else if (map.find(target) != map.end() && target == it->first && map[target] >= 2)
+	        if (map.find(target) != map.end() && (target != it->first || map[target] > 1))
 	            return true;
 	    }
 	    return false;
