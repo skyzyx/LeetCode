@@ -25,10 +25,10 @@ public class Solution {
             for (int j = 0; j < 9; j++) {
                 if (board[i][j] == '.')
                     continue;
-                int index = board[i][j] - '1';
-                if (flagRow[i][index] || flagCol[j][index] || flagGri[i/3*3+j/3][index])
+                int k = board[i][j] - '1';
+                if (flagRow[i][k] || flagCol[k][j] || flagGri[i/3*3+j/3][k])
                     return false;
-                flagRow[i][index] = flagCol[j][index] = flagGri[i/3*3+j/3][index] = true;
+                flagRow[i][k] = flagCol[k][j] = flagGri[i/3*3+j/3][k] = true;
             }
         }
         return true;
