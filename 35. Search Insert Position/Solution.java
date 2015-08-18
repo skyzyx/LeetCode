@@ -13,23 +13,17 @@ Here are few examples.
 */
 
 public class Solution {
-    public int searchInsert(int[] A, int target) {
-        if (A == null)
-            return -1;
-            
-        int left = 0;
-        int right = A.length - 1;
-        
-        while (left <= right) {
-            int mid = (left + right) / 2;
-            if (A[mid] == target) {
-                return mid;
-            } else if (A[mid] > target) {
-                right = mid - 1;
-            } else {
-                left = mid + 1;
-            }
+    public int searchInsert(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int m = (l + r) / 2;
+            if (nums[m] == target) return m;
+            if (nums[m] < target)
+                l = m+1;
+            else if (nums[m] > target)
+                r = m-1;
         }
-        return left;
+        return l;
     }
 }
