@@ -27,11 +27,10 @@ public class Solution {
             
         res.add(0);
         for (int i = 1; i <= n; i++) {
-            List<Integer> cur = new ArrayList<Integer>(res);
-            for (int j = res.size() - 1; j >= 0; j--) {
-                cur.add(res.get(j) + (1 << (i-1)));
+            int size = res.size();
+            for (int j = size - 1; j >= 0; j--) {
+                res.add(res.get(j) + (1 << (i-1)));
             }
-            res = new ArrayList<Integer>(cur);
         }
         return res;
     }
